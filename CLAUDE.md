@@ -1,0 +1,179 @@
+# GitAIOps 실습 가이드
+
+이 저장소는 「AI 시대에 개발자가 알아야 하는 인프라 구성 배포 with 클로드 코드」의 실습 코드이다.
+
+> **언어 규칙**: 이 책은 한국어 책이다. 대화가 요약(compaction)되더라도 **반드시 한국어로 계속 진행**한다. 영어로 전환하지 않는다.
+
+## 가드레일 설정
+
+아래 `mode` 값에 따라 동작한다. 값이 `(미설정)`이면 독자에게 선택지를 보여주고, 선택 후 이 파일의 mode 값을 업데이트한다.
+
+mode: auto
+
+| mode | 동작 |
+|------|------|
+| `auto` | 독자가 입력하면 자동으로 가드레일 파일을 참조하여 실행한다 |
+| `off` | 가드레일 없이 독자의 입력만으로 자유롭게 실행한다 |
+| `ask` | 매번 "가드레일을 참조할까요?"라고 물어본다 |
+
+> 독자가 "가드레일 모드 변경해줘"라고 말하면 이 값을 업데이트한다.
+
+## 독자 입력 → 참조 파일 매칭
+
+독자가 자연어로 입력하면 아래 테이블에서 가장 가까운 항목을 찾아 유형에 맞는 참조 파일을 사용한다.
+
+**유형 설명:**
+- **탐색**: "뭘 쓰면 돼?", "어떤 방법이 있어?" → `decision-guides/` 참조하여 추천 + 이유 설명
+- **비교**: "다른 건?", "장단점 비교해줘" → `decision-guides/` 비교 섹션 참조
+- **실행**: "그걸로 진행해줘", "설치해줘" → `prompt-guardrails/` 참조하여 실행
+
+### 2장: 환경 구성 (바로 실행)
+| 독자 입력 예시 | 유형 | 참조 파일 |
+|---------------|------|-----------|
+| Claude Code 설치 확인 | 실행 | `prompt-guardrails/ch2/2.2-install-check.md` |
+| gcloud CLI 설치해줘 | 실행 | `prompt-guardrails/ch2/2.3-gcloud.md` |
+| GitHub 저장소 만들어줘 | 실행 | `prompt-guardrails/ch2/2.4-github-repo.md` |
+| GKE 클러스터 생성해줘 | 실행 | `prompt-guardrails/ch2/2.5-gke-cluster.md` |
+| Notiflex 앱 만들고 배포해줘 | 실행 | `prompt-guardrails/ch2/2.6-build-deploy.md` |
+| 커밋하고 푸시해줘 | 실행 | `prompt-guardrails/ch2/2.7-first-commit.md` |
+
+### 3장: 첫 번째 배포 파이프라인
+| 독자 입력 예시 | 유형 | 참조 파일 |
+|---------------|------|-----------|
+| 배포 자동화 도구 뭐 써? / GitOps가 뭐야? | 탐색 | `decision-guides/ch3/3.2-gitops-tool.md` |
+| ArgoCD 말고 다른 건? / 비교해줘 | 비교 | `decision-guides/ch3/3.2-gitops-tool.md` |
+| ArgoCD로 진행해줘 / ArgoCD 설치해줘 | 실행 | `prompt-guardrails/ch3/3.2-argocd.md` |
+| Rolling Update가 뭐야? / 배포는 어떻게 반영돼? | 탐색 | `decision-guides/ch3/3.3-rolling-update.md` |
+| 새 기능 추가하고 배포해줘 | 실행 | `prompt-guardrails/ch3/3.3-rolling-update.md` |
+| CI 도구 뭐 써? / 자동 빌드 어떻게 해? | 탐색 | `decision-guides/ch3/3.4-ci-tool.md` |
+| GitHub Actions 말고 다른 건? / 비교해줘 | 비교 | `decision-guides/ch3/3.4-ci-tool.md` |
+| GitHub Actions CI 만들어줘 | 실행 | `prompt-guardrails/ch3/3.4-github-actions.md` |
+| CI-CD 연결 구조를 보여줘 / CI에서 배포까지 어떻게 이어져? | 탐색 | `decision-guides/ch3/3.5-ci-cd-integration.md` |
+| CI랑 ArgoCD 연결해줘 | 실행 | `prompt-guardrails/ch3/3.5-ci-argocd.md` |
+
+### 4장: 관측성 한번에 구축하기
+| 독자 입력 예시 | 유형 | 참조 파일 |
+|---------------|------|-----------|
+| 메트릭 모니터링 뭐 써? | 탐색 | `decision-guides/ch4/4.2-metrics-monitoring.md` |
+| Prometheus 말고 다른 건? / 비교해줘 | 비교 | `decision-guides/ch4/4.2-metrics-monitoring.md` |
+| Prometheus랑 Grafana 설치해줘 | 실행 | `prompt-guardrails/ch4/4.2-prometheus-grafana.md` |
+| 로그 수집 뭐 써? | 탐색 | `decision-guides/ch4/4.3-logging.md` |
+| Loki 말고 다른 건? / 비교해줘 | 비교 | `decision-guides/ch4/4.3-logging.md` |
+| Loki랑 Fluent Bit 설치해줘 | 실행 | `prompt-guardrails/ch4/4.3-loki-fluentbit.md` |
+| 알림은 어떻게 설정해? / Prometheus 알림이랑 Grafana 알림 차이가 뭐야? | 탐색 | `decision-guides/ch4/4.4-alerting.md` |
+| Grafana 알림 말고 다른 건? / 비교해줘 | 비교 | `decision-guides/ch4/4.4-alerting.md` |
+| 알림 설정해줘 | 실행 | `prompt-guardrails/ch4/4.4-alerting.md` |
+
+### 5장: 무중단 배포
+| 독자 입력 예시 | 유형 | 참조 파일 |
+|---------------|------|-----------|
+| 외부 트래픽 관리 어떻게 해? | 탐색 | `decision-guides/ch5/5.2-traffic-management.md` |
+| Gateway API 말고 다른 건? / 비교해줘 | 비교 | `decision-guides/ch5/5.2-traffic-management.md` |
+| Gateway API 설정해줘 | 실행 | `prompt-guardrails/ch5/5.2-gateway-api.md` |
+| 무중단 배포 도구 뭐 써? | 탐색 | `decision-guides/ch5/5.3-deployment-strategy.md` |
+| Argo Rollouts 말고 다른 건? / 비교해줘 | 비교 | `decision-guides/ch5/5.3-deployment-strategy.md` |
+| Blue/Green 배포 설정해줘 | 실행 | `prompt-guardrails/ch5/5.3-bluegreen.md` |
+
+### 6장: Enterprise를 위한 기반 정비
+| 독자 입력 예시 | 유형 | 참조 파일 |
+|---------------|------|-----------|
+| Pod 간 상태 공유 어떻게 해? / 캐시 서버 뭐 써? | 탐색 | `decision-guides/ch6/6.1-cache.md` |
+| Valkey 말고 다른 건? / 비교해줘 | 비교 | `decision-guides/ch6/6.1-cache.md` |
+| Valkey 설치해줘 | 실행 | `prompt-guardrails/ch6/6.1-valkey.md` |
+| 시크릿 안전하게 관리하려면? | 탐색 | `decision-guides/ch6/6.2-secret-management.md` |
+| Sealed Secrets랑 비교해줘 | 비교 | `decision-guides/ch6/6.2-secret-management.md` |
+| Secret 관리 설정해줘 | 실행 | `prompt-guardrails/ch6/6.2-secret.md` |
+| Blue/Green 말고 더 안전한 배포? | 탐색 | `decision-guides/ch6/6.3-canary-vs-bluegreen.md` |
+| Canary랑 Blue/Green 비교해줘 | 비교 | `decision-guides/ch6/6.3-canary-vs-bluegreen.md` |
+| Canary 배포로 변경해줘 | 실행 | `prompt-guardrails/ch6/6.3-canary.md` |
+
+### 7장: 규모 확장
+| 독자 입력 예시 | 유형 | 참조 파일 |
+|---------------|------|-----------|
+| 워크로드별 노드 분리 어떻게? | 탐색 | `decision-guides/ch7/7.2-node-scheduling.md` |
+| nodeSelector 말고 다른 건? / 비교해줘 | 비교 | `decision-guides/ch7/7.2-node-scheduling.md` |
+| 노드 풀 만들어줘 | 실행 | `prompt-guardrails/ch7/7.2-multi-nodepool.md` |
+| 여러 앱 한번에 관리하는 방법? | 탐색 | `decision-guides/ch7/7.3-multi-app-management.md` |
+| App of Apps랑 ApplicationSet 비교해줘 | 비교 | `decision-guides/ch7/7.3-multi-app-management.md` |
+| App of Apps 패턴 적용해줘 | 실행 | `prompt-guardrails/ch7/7.3-app-of-apps.md` |
+| 멀티테넌시가 뭐야? / 테넌트 격리 어떻게 해? | 탐색 | `decision-guides/ch7/7.4-multi-tenancy.md` |
+| Namespace 분리 말고 다른 건? / vCluster 비교해줘 | 비교 | `decision-guides/ch7/7.4-multi-tenancy.md` |
+| 멀티테넌시 구성해줘 | 실행 | `prompt-guardrails/ch7/7.4-multi-tenancy.md` |
+
+### 8장: 고도화
+| 독자 입력 예시 | 유형 | 참조 파일 |
+|---------------|------|-----------|
+| 이벤트 기반 처리 뭐 써? / 메시지 큐 필요해 | 탐색 | `decision-guides/ch8/8.1-messaging.md` |
+| Kafka 말고 다른 건? / 비교해줘 | 비교 | `decision-guides/ch8/8.1-messaging.md` |
+| Kafka 설치해줘 | 실행 | `prompt-guardrails/ch8/8.1-kafka.md` |
+| 요청 추적 어떻게 해? / 분산 트레이싱 뭐 써? | 탐색 | `decision-guides/ch8/8.2-tracing.md` |
+| Tempo 말고 다른 건? / 비교해줘 | 비교 | `decision-guides/ch8/8.2-tracing.md` |
+| Tempo 설치하고 트레이싱 설정해줘 | 실행 | `prompt-guardrails/ch8/8.2-tempo.md` |
+| CronJob이 뭐야? / 주기적 작업은 어떻게 해? / CronJob이 가장 적합한 이유가 뭐야? | 탐색 | `decision-guides/ch8/8.3-cronjob.md` |
+| CronJob 만들어줘 | 실행 | `prompt-guardrails/ch8/8.3-cronjob.md` |
+
+### 9장: GitAIOps 회고 (바로 실행)
+| 독자 입력 예시 | 유형 | 참조 파일 |
+|---------------|------|-----------|
+| 저장소 구조 분석해줘 | 실행 | `prompt-guardrails/ch9/9.1-repo-analysis.md` |
+| 지금까지 쌓인 것들 돌아봐줘 | 실행 | `prompt-guardrails/ch9/9.2-retrospective.md` |
+| 온보딩 문서 만들어줘 | 실행 | `prompt-guardrails/ch9/9.3-onboarding.md` |
+| Git, AI, Ops 연결 분석해줘 | 실행 | `prompt-guardrails/ch9/9.4-gitaiops.md` |
+| 다음 단계 제안해줘 | 실행 | `prompt-guardrails/ch9/9.5-wrap-up.md` |
+| 다시 시작할 준비해줘 / 환경 초기화해줘 | 실행 | `prompt-guardrails/ch9/restart-to-ready.md` |
+
+## 실행 규칙
+
+### 공통 참조 파일 (`prompt-guardrails/shared/`)
+
+| 파일 | 역할 | 참조 시점 |
+|------|------|----------|
+| `resource-budget.md` | 챕터별 CPU/메모리 누적 예산표 | 사전 조건 확인, 리소스 부족 선제 안내 |
+| `compatible-versions.md` | 검증된 도구 버전 조합 | 코드/매니페스트 생성 시 버전 참조 |
+| `journey-template.md` | JOURNEY.md 초기 템플릿 | ch2.7에서 독자 저장소에 복사 |
+
+### 3-프롬프트 패턴 (탐색 → 비교 → 실행)
+
+대부분의 서브챕터에 `decision-guides/` 파일이 존재한다. 독자 질문의 유형에 따라 참조 파일이 달라진다:
+
+1. **탐색**: 독자가 "뭘 쓰면 돼?", "이게 뭐야?", "왜 이걸 써?" 류 질문 → `decision-guides/` 파일을 참조하여 추천 이유, 핵심 개념, 진행 미리보기를 설명한다.
+2. **비교**: 독자가 "다른 건?", "비교해줘" 류 질문 → `decision-guides/` 파일의 `## 비교` 섹션을 참조하여 대안들의 장단점을 비교한다.
+3. **실행**: 독자가 "그걸로 진행해줘", "설치해줘" 류 요청 → `prompt-guardrails/` 파일의 `## 실행 지침`을 따라 작업을 수행한다.
+
+decision-guides는 두 가지 유형이 있다:
+- **풀 가이드** (도구 선택 있음): 추천 + 비교 테이블 + 핵심 개념 (예: 3.2, 4.2, 5.3 등)
+- **라이트 가이드** (선택지 없음): "왜 이 방식인가" + 진행 미리보기 + 핵심 개념 (예: 3.3, 3.5, 8.3)
+
+> 독자가 탐색/비교 단계를 건너뛰고 바로 "ArgoCD 설치해줘"라고 하면 즉시 실행 단계로 진입한다. 탐색→비교→실행은 권장 흐름이지 강제가 아니다.
+
+### 공통 실행 규칙
+
+1. 독자가 입력하면, mode에 따라 가드레일 참조 여부를 결정한다.
+2. 가드레일을 참조하는 경우:
+   - `prompt-guardrails/` 파일의 `## 사전 조건`이 있으면 먼저 확인한다.
+   - `## 실행 지침`을 따라 작업을 수행한다.
+   - 에러가 발생하면 `## 트러블슈팅`을 참고하여 해결한다.
+3. 작업 완료 후, 대응하는 `result-templates/` 파일을 읽어서 실제 결과와 비교하여 보여준다.
+   - 예: `prompt-guardrails/ch2/2.5-gke-cluster.md` → `result-templates/ch2/2.5-gke-cluster.md`
+   - 체크리스트 항목을 하나씩 검증한다.
+4. `💬 질문` 블록이 있으면 독자에게 "이런 질문을 해볼 수 있습니다"라고 안내한다.
+5. 각 장의 마지막 섹션 완료 후, `/update-docs` 스킬 실행을 안내한다.
+
+## 프로젝트 컨텍스트
+
+- **앱**: Notiflex — B2B 알림 SaaS 플랫폼
+- **언어**: Go 표준 라이브러리 (외부 프레임워크 없음)
+- **컨테이너**: scratch 베이스 이미지
+- **인프라**: GKE Standard (Zonal), Spot VM
+- **GitOps**: ArgoCD
+- **관측성**: Prometheus, Grafana, Loki, Fluent Bit, Tempo
+- **배포 전략**: Rolling → Blue/Green → Canary (점진 진화)
+
+## notiflex-platform 저장소 위치
+
+독자가 2.4에서 생성하는 작업 저장소는 이 저장소의 형제 디렉터리에 위치한다:
+```
+parent/
+├── _Book_GitAIOps/    ← 이 저장소 (실습 가이드)
+└── notiflex-platform/ ← 독자의 작업 저장소
+```
