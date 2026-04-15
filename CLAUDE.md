@@ -148,11 +148,11 @@ decision-guides는 두 가지 유형이 있다:
 
 ### kubectl 안전 규칙
 
-이 책은 `claude --dangerously-skip-permissions`로 실행하는 것을 기준으로 한다. 승인 없이 명령이 실행되므로, kubectl이 잘못된 클러스터를 대상으로 동작하지 않도록 **모든 kubectl 명령에 `--context gke-notiflex`를 반드시 지정한다.**
+이 책은 `claude --dangerously-skip-permissions`로 실행하는 것을 기준으로 한다. 승인 없이 명령이 실행되므로, kubectl이 잘못된 클러스터를 대상으로 동작하지 않도록 **모든 kubectl 명령에 `--context gke-sysnet4admin_book_gitaiops`를 반드시 지정한다.**
 
 ```bash
 # ✅ 올바른 사용
-kubectl --context gke-notiflex get pods -n notiflex
+kubectl --context gke-sysnet4admin_book_gitaiops get pods -n notiflex
 
 # ❌ 금지 — 현재 컨텍스트가 다른 클러스터일 수 있음
 kubectl get pods -n notiflex

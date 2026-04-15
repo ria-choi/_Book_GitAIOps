@@ -109,7 +109,7 @@ gcloud compute disks list --project=$PROJECT --format="table(name,zone,status)" 
 # gcloud compute disks delete <NAME> --zone=asia-northeast3-a --quiet
 ```
 
-> ⚠️ 남은 디스크는 과금된다. `gke-notiflex-cluster-*` 패턴 이름의 디스크가 남아있으면 삭제한다.
+> ⚠️ 남은 디스크는 과금된다. `gke-sysnet4admin_book_gitaiops-cluster-*` 패턴 이름의 디스크가 남아있으면 삭제한다.
 
 ## 4. 정리 확인
 
