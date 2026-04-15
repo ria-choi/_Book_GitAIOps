@@ -40,82 +40,82 @@ mode: auto
 ### 3장: 첫 번째 배포 파이프라인
 | 독자 입력 예시 | 유형 | 참조 파일 |
 |---------------|------|-----------|
-| 배포 자동화 도구 뭐 써? / GitOps가 뭐야? | 탐색 | `decision-guides/ch3/3.2-gitops-tool.md` |
-| ArgoCD 말고 다른 건? / 비교해줘 | 비교 | `decision-guides/ch3/3.2-gitops-tool.md` |
-| ArgoCD로 진행해줘 / ArgoCD 설치해줘 | 실행 | `prompt-guardrails/ch3/3.2-argocd.md` |
-| Rolling Update가 뭐야? / 배포는 어떻게 반영돼? | 탐색 | `decision-guides/ch3/3.3-rolling-update.md` |
-| 새 기능 추가하고 배포해줘 | 실행 | `prompt-guardrails/ch3/3.3-rolling-update.md` |
-| CI 도구 뭐 써? / 자동 빌드 어떻게 해? | 탐색 | `decision-guides/ch3/3.4-ci-tool.md` |
-| GitHub Actions 말고 다른 건? / 비교해줘 | 비교 | `decision-guides/ch3/3.4-ci-tool.md` |
+| 현재 환경에서 배포 자동화 도구는 어느 걸 쓰는 게 좋아? | 탐색 | `decision-guides/ch3/3.2-gitops-tool.md` |
+| 다른 도구도 있다고 했는데, 비교하면 어때? | 비교 | `decision-guides/ch3/3.2-gitops-tool.md` |
+| ArgoCD로 진행해줘 | 실행 | `prompt-guardrails/ch3/3.2-argocd.md` |
+| Rolling Update가 뭐야? | 탐색 | `decision-guides/ch3/3.3-rolling-update.md` |
+| API에 버전 정보 확인할 수 있는 기능 추가하고 배포해줘 | 실행 | `prompt-guardrails/ch3/3.3-rolling-update.md` |
+| 지금 빌드할 때마다 명령어를 직접 치고 있는데, 이거 자동으로 돌게 할 수 없어? | 탐색 | `decision-guides/ch3/3.4-ci-tool.md` |
+| 다른 CI 도구도 있다고 했는데, 비교하면 어때? | 비교 | `decision-guides/ch3/3.4-ci-tool.md` |
 | GitHub Actions CI 만들어줘 | 실행 | `prompt-guardrails/ch3/3.4-github-actions.md` |
-| CI-CD 연결 구조를 보여줘 / CI에서 배포까지 어떻게 이어져? | 탐색 | `decision-guides/ch3/3.5-ci-cd-integration.md` |
+| CI에서 빌드하면 자동으로 배포까지 되게 할 수 있어? | 탐색 | `decision-guides/ch3/3.5-ci-cd-integration.md` |
 | CI랑 ArgoCD 연결해줘 | 실행 | `prompt-guardrails/ch3/3.5-ci-argocd.md` |
 
-### 4장: 관측성 한번에 구축하기
+### 4장: 관측 가능성 한번에 구축하기
 | 독자 입력 예시 | 유형 | 참조 파일 |
 |---------------|------|-----------|
-| 메트릭 모니터링 뭐 써? | 탐색 | `decision-guides/ch4/4.2-metrics-monitoring.md` |
-| Prometheus 말고 다른 건? / 비교해줘 | 비교 | `decision-guides/ch4/4.2-metrics-monitoring.md` |
+| 클러스터에서 뭐가 돌아가고 있는지 어떻게 알 수 있어? | 탐색 | `decision-guides/ch4/4.2-metrics-monitoring.md` |
+| 다른 모니터링 도구도 있다고 했는데, 비교하면 어때? | 비교 | `decision-guides/ch4/4.2-metrics-monitoring.md` |
 | Prometheus랑 Grafana 설치해줘 | 실행 | `prompt-guardrails/ch4/4.2-prometheus-grafana.md` |
-| 로그 수집 뭐 써? | 탐색 | `decision-guides/ch4/4.3-logging.md` |
-| Loki 말고 다른 건? / 비교해줘 | 비교 | `decision-guides/ch4/4.3-logging.md` |
+| 로그 수집 뭐 써? Pod 로그를 한곳에서 보고 싶어 | 탐색 | `decision-guides/ch4/4.3-logging.md` |
+| 다른 로그 수집 도구도 있다고 했는데, 비교하면 어때? | 비교 | `decision-guides/ch4/4.3-logging.md` |
 | Loki랑 Fluent Bit 설치해줘 | 실행 | `prompt-guardrails/ch4/4.3-loki-fluentbit.md` |
-| 알림은 어떻게 설정해? / Prometheus 알림이랑 Grafana 알림 차이가 뭐야? | 탐색 | `decision-guides/ch4/4.4-alerting.md` |
-| Grafana 알림 말고 다른 건? / 비교해줘 | 비교 | `decision-guides/ch4/4.4-alerting.md` |
+| 문제가 생기면 자동으로 알림 받을 수 있어? | 탐색 | `decision-guides/ch4/4.4-alerting.md` |
+| 다른 알림 방식도 있다고 했는데, 비교하면 어때? | 비교 | `decision-guides/ch4/4.4-alerting.md` |
 | 알림 설정해줘 | 실행 | `prompt-guardrails/ch4/4.4-alerting.md` |
 
 ### 5장: 무중단 배포
 | 독자 입력 예시 | 유형 | 참조 파일 |
 |---------------|------|-----------|
-| 외부 트래픽 관리 어떻게 해? | 탐색 | `decision-guides/ch5/5.2-traffic-management.md` |
-| Gateway API 말고 다른 건? / 비교해줘 | 비교 | `decision-guides/ch5/5.2-traffic-management.md` |
+| 지금은 클러스터 안에서만 접근되는데, 외부에서도 API를 호출하려면 어떻게 해? | 탐색 | `decision-guides/ch5/5.2-traffic-management.md` |
+| 다른 방법도 있다고 했는데, 비교하면 어때? | 비교 | `decision-guides/ch5/5.2-traffic-management.md` |
 | Gateway API 설정해줘 | 실행 | `prompt-guardrails/ch5/5.2-gateway-api.md` |
-| 무중단 배포 도구 뭐 써? | 탐색 | `decision-guides/ch5/5.3-deployment-strategy.md` |
-| Argo Rollouts 말고 다른 건? / 비교해줘 | 비교 | `decision-guides/ch5/5.3-deployment-strategy.md` |
+| 배포할 때 서비스가 잠깐이라도 끊길 수 있잖아. 더 안전하게 배포하는 방법 없어? | 탐색 | `decision-guides/ch5/5.3-deployment-strategy.md` |
+| Argo Rollouts 말고 다른 건? Flagger나 Istio는 어때? | 비교 | `decision-guides/ch5/5.3-deployment-strategy.md` |
 | Blue/Green 배포 설정해줘 | 실행 | `prompt-guardrails/ch5/5.3-bluegreen.md` |
 
 ### 6장: Enterprise를 위한 기반 정비
 | 독자 입력 예시 | 유형 | 참조 파일 |
 |---------------|------|-----------|
-| Pod 간 상태 공유 어떻게 해? / 캐시 서버 뭐 써? | 탐색 | `decision-guides/ch6/6.1-cache.md` |
-| Valkey 말고 다른 건? / 비교해줘 | 비교 | `decision-guides/ch6/6.1-cache.md` |
+| Pod이 여러 개인데 데이터를 어떻게 공유해? | 탐색 | `decision-guides/ch6/6.1-cache.md` |
+| Redis를 많이 쓰는데 Valkey는 처음 들어봐. 다른 방법도 있다고 했는데, 비교하면 어때? | 비교 | `decision-guides/ch6/6.1-cache.md` |
 | Valkey 설치해줘 | 실행 | `prompt-guardrails/ch6/6.1-valkey.md` |
-| 시크릿 안전하게 관리하려면? | 탐색 | `decision-guides/ch6/6.2-secret-management.md` |
-| Sealed Secrets랑 비교해줘 | 비교 | `decision-guides/ch6/6.2-secret-management.md` |
+| 시크릿을 안전하게 관리하려면 어떻게 해? | 탐색 | `decision-guides/ch6/6.2-secret-management.md` |
+| 다른 방법도 있다고 했는데, 비교하면 어때? | 비교 | `decision-guides/ch6/6.2-secret-management.md` |
 | Secret 관리 설정해줘 | 실행 | `prompt-guardrails/ch6/6.2-secret.md` |
-| Blue/Green 말고 더 안전한 배포? | 탐색 | `decision-guides/ch6/6.3-canary-vs-bluegreen.md` |
-| Canary랑 Blue/Green 비교해줘 | 비교 | `decision-guides/ch6/6.3-canary-vs-bluegreen.md` |
+| Blue/Green 말고 더 안전한 배포 방법 없어? 새 버전에 트래픽을 조금씩 보내는 방법? | 탐색 | `decision-guides/ch6/6.3-canary-vs-bluegreen.md` |
+| Canary랑 Blue/Green 차이를 다시 정리해줘. 다른 방법도 있다고 했는데, 비교하면 어때? | 비교 | `decision-guides/ch6/6.3-canary-vs-bluegreen.md` |
 | Canary 배포로 변경해줘 | 실행 | `prompt-guardrails/ch6/6.3-canary.md` |
 
 ### 7장: 규모 확장
 | 독자 입력 예시 | 유형 | 참조 파일 |
 |---------------|------|-----------|
-| 워크로드별 노드 분리 어떻게? | 탐색 | `decision-guides/ch7/7.2-node-scheduling.md` |
-| nodeSelector 말고 다른 건? / 비교해줘 | 비교 | `decision-guides/ch7/7.2-node-scheduling.md` |
-| 노드 풀 만들어줘 | 실행 | `prompt-guardrails/ch7/7.2-multi-nodepool.md` |
-| 여러 앱 한번에 관리하는 방법? | 탐색 | `decision-guides/ch7/7.3-multi-app-management.md` |
-| App of Apps랑 ApplicationSet 비교해줘 | 비교 | `decision-guides/ch7/7.3-multi-app-management.md` |
+| 워크로드별로 노드를 분리할 수 있어? API는 API 전용 노드에만 올리고 싶은데 | 탐색 | `decision-guides/ch7/7.2-node-scheduling.md` |
+| nodeSelector 말고 다른 방법도 있어? 비교하면 어때? | 비교 | `decision-guides/ch7/7.2-node-scheduling.md` |
+| 역할별 노드 풀을 만들어줘 | 실행 | `prompt-guardrails/ch7/7.2-multi-nodepool.md` |
+| ArgoCD에서 앱이 여러 개인데 관리가 힘들어. 한 번에 관리하는 방법 없어? | 탐색 | `decision-guides/ch7/7.3-multi-app-management.md` |
+| App of Apps 말고 다른 방법도 있어? 비교하면 어때? | 비교 | `decision-guides/ch7/7.3-multi-app-management.md` |
 | App of Apps 패턴 적용해줘 | 실행 | `prompt-guardrails/ch7/7.3-app-of-apps.md` |
-| 멀티테넌시가 뭐야? / 테넌트 격리 어떻게 해? | 탐색 | `decision-guides/ch7/7.4-multi-tenancy.md` |
-| Namespace 분리 말고 다른 건? / vCluster 비교해줘 | 비교 | `decision-guides/ch7/7.4-multi-tenancy.md` |
+| 고객별로 환경을 분리하려면 어떻게 해? | 탐색 | `decision-guides/ch7/7.4-multi-tenancy.md` |
+| Namespace 분리 말고 다른 방법도 있어? 비교하면 어때? | 비교 | `decision-guides/ch7/7.4-multi-tenancy.md` |
 | 멀티테넌시 구성해줘 | 실행 | `prompt-guardrails/ch7/7.4-multi-tenancy.md` |
 
 ### 8장: 고도화
 | 독자 입력 예시 | 유형 | 참조 파일 |
 |---------------|------|-----------|
-| 이벤트 기반 처리 뭐 써? / 메시지 큐 필요해 | 탐색 | `decision-guides/ch8/8.1-messaging.md` |
-| Kafka 말고 다른 건? / 비교해줘 | 비교 | `decision-guides/ch8/8.1-messaging.md` |
+| 요청이 몰리면 API가 느려지는데, 비동기로 처리할 수 있어? | 탐색 | `decision-guides/ch8/8.1-messaging.md` |
+| Kafka 말고 다른 메시지 큐도 있어? 비교하면 어때? | 비교 | `decision-guides/ch8/8.1-messaging.md` |
 | Kafka 설치해줘 | 실행 | `prompt-guardrails/ch8/8.1-kafka.md` |
-| 요청 추적 어떻게 해? / 분산 트레이싱 뭐 써? | 탐색 | `decision-guides/ch8/8.2-tracing.md` |
-| Tempo 말고 다른 건? / 비교해줘 | 비교 | `decision-guides/ch8/8.2-tracing.md` |
+| 요청이 어디서 느린지 어떻게 알 수 있어? | 탐색 | `decision-guides/ch8/8.2-tracing.md` |
+| Tempo 말고 다른 트레이싱 도구도 있어? 비교하면 어때? | 비교 | `decision-guides/ch8/8.2-tracing.md` |
 | Tempo 설치하고 트레이싱 설정해줘 | 실행 | `prompt-guardrails/ch8/8.2-tempo.md` |
-| CronJob이 뭐야? / 주기적 작업은 어떻게 해? / CronJob이 가장 적합한 이유가 뭐야? | 탐색 | `decision-guides/ch8/8.3-cronjob.md` |
+| API 헬스체크를 주기적으로 자동 실행하고 싶은데, 어떻게 만들어? | 탐색 | `decision-guides/ch8/8.3-cronjob.md` |
 | CronJob 만들어줘 | 실행 | `prompt-guardrails/ch8/8.3-cronjob.md` |
 
-### 9장: GitAIOps 회고 (바로 실행)
+### 9장: GitAIOps: 살아있는 운영 표준의 탄생 (바로 실행)
 | 독자 입력 예시 | 유형 | 참조 파일 |
 |---------------|------|-----------|
-| 저장소 구조 분석해줘 | 실행 | `prompt-guardrails/ch9/9.1-repo-analysis.md` |
+| 지금까지 구성한 notiflex-platform 저장소를 분석해줘 | 실행 | `prompt-guardrails/ch9/9.1-repo-analysis.md` |
 | 지금까지 쌓인 것들 돌아봐줘 | 실행 | `prompt-guardrails/ch9/9.2-retrospective.md` |
 | 온보딩 문서 만들어줘 | 실행 | `prompt-guardrails/ch9/9.3-onboarding.md` |
 | Git, AI, Ops 연결 분석해줘 | 실행 | `prompt-guardrails/ch9/9.4-gitaiops.md` |
@@ -166,7 +166,7 @@ decision-guides는 두 가지 유형이 있다:
 - **컨테이너**: scratch 베이스 이미지
 - **인프라**: GKE Standard (Zonal), Spot VM
 - **GitOps**: ArgoCD
-- **관측성**: Prometheus, Grafana, Loki, Fluent Bit, Tempo
+- **관측 가능성**: Prometheus, Grafana, Loki, Fluent Bit, Tempo
 - **배포 전략**: Rolling → Blue/Green → Canary (점진 진화)
 
 ## notiflex-platform 저장소 위치

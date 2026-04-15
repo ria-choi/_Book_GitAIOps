@@ -12,5 +12,6 @@
 | 1.4 | <small>이 책의 구성과 실습 흐름</small> |
 | 1.5 | <small>Notiflex 스타트업 시나리오 소개</small> |
 | 1.6 | <small>가드레일: Claude Code가 정확하게 동작하는 이유</small> |
+| 💡 | <small>Hints & Tips: 이 책의 실습에서 쓰는 Claude Code 기능들</small> |
 
 > 자세한 내용은 책을 참고하세요.

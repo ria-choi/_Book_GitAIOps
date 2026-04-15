@@ -1,4 +1,4 @@
-# 4장. 관측성 한번에 구축하기
+# 4장. 관측 가능성 한번에 구축하기
 
 > **스토리**: 새벽에 고객이 "서비스가 안 된다"고 연락, 뭐가 문제인지 모른다
 
@@ -8,10 +8,11 @@
 
 | 절 | 제목 |
 |:---:|------|
-| 4.1 | <small>왜 관측성이 필요한가</small> |
-| 4.2 | <small>메트릭: Prometheus + Grafana</small> |
-| 4.3 | <small>로깅: Loki + Fluent Bit</small> |
-| 4.4 | <small>알림 설정</small> |
-| 💡 | <small>Hints & Tips: AI에게 검증시키기 — `/cluster-audit`</small> |
+| 4.1 | <small>관측 가능성이란</small> |
+| 4.2 | <small>메트릭 모니터링: Prometheus + Grafana</small> |
+| 4.3 | <small>로그 수집: Loki + Fluent Bit</small> |
+| 4.4 | <small>알림 설정: PrometheusRule</small> |
+| 💡 | <small>Hints & Tips: AI에게 검증시키기: `/cluster-audit`</small> |
+| 💡 | <small>4장 가드레일 살펴보기</small> |
 
 > 자세한 내용은 책을 참고하세요.

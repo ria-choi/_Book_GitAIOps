@@ -8,10 +8,12 @@
 
 | 절 | 제목 |
 |:---:|------|
-| 9.1 | <small>AI에게 레포 분석 시키기</small> |
+| 9.1 | <small>AI에게 저장소 분석 시키기</small> |
 | 9.2 | <small>쌓인 것들을 돌아보기</small> |
 | 9.3 | <small>기대하지 않았던 효과</small> |
 | 9.4 | <small>GitAIOps의 출현</small> |
-| 9.5 | <small>마무리: 다음 단계를 위한 제안</small> |
+| 9.5 | <small>마무리: 다음 단계</small> |
+| 💡 | <small>Hints & Tips: AI와 대화하는 습관</small> |
+| 💡 | <small>9장 가드레일 살펴보기</small> |
 
 > 자세한 내용은 책을 참고하세요.
