@@ -13,6 +13,5 @@
 | 4.3 | <small>로그 수집: Loki + Fluent Bit</small> |
 | 4.4 | <small>알림 설정: PrometheusRule</small> |
 | 💡 | <small>Hints & Tips: AI에게 검증시키기: `/cluster-audit`</small> |
-| 💡 | <small>4장 가드레일 살펴보기</small> |
 
 > 자세한 내용은 책을 참고하세요.

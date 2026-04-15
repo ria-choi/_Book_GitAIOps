@@ -12,6 +12,5 @@
 | 5.2 | <small>외부 트래픽 관리: Gateway API</small> |
 | 5.3 | <small>무중단 전환: Blue/Green 배포</small> |
 | 💡 | <small>Hints & Tips: 아키텍처 결정 기록하기</small> |
-| 💡 | <small>5장 가드레일 살펴보기</small> |
 
 > 자세한 내용은 책을 참고하세요.

@@ -13,6 +13,5 @@
 | 7.3 | <small>다수 앱 관리: App of Apps 패턴 + Sync Wave</small> |
 | 7.4 | <small>멀티테넌시: Namespace 격리</small> |
 | 💡 | <small>Hints & Tips: `settings.local.json`으로 권한 분리</small> |
-| 💡 | <small>7장 가드레일 살펴보기</small> |
 
 > 자세한 내용은 책을 참고하세요.
