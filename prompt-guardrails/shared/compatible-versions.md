@@ -14,7 +14,7 @@
 | Strimzi | 0.51.0 | Kafka 4.x만 지원 (3.x 불가) |
 | Kafka | 4.1.0 | Strimzi 0.51+ 호환 (4.1~4.2 검증됨) |
 | Strimzi API | kafka.strimzi.io/v1 | v1beta2 deprecated, replicas/resources는 KafkaNodePool에서만 |
-| IBM/sarama | 1.47.0 | Kafka 4.x 지원 |
+| IBM/sarama | 1.47.0 | v1.46.2+에서 Kafka 4.x Version 상수(`V4_0_0_0`, `V4_1_0_0`) 제공. v1.45 이하는 상수 부재로 빌드 실패 |
 | OTel SDK | 1.43.0 | Go 1.25+ 필수 |
 | gRPC | 1.80.0 | OTel OTLP exporter 호환 |
 | valkey-go | 1.0.73 | Go 1.22+ |
