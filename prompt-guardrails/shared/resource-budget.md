@@ -17,7 +17,7 @@ e2-medium 2노드 기준 총 가용: vCPU 4000m, RAM 8GB
 
 ## 위험 구간
 
-**ch6이 가장 위험**: ch4 관측성 스택이 깔린 상태에서 Valkey + CSI Driver 추가.
+**ch6이 가장 위험**: ch4 관측 가능성 스택이 깔린 상태에서 Valkey + CSI Driver 추가.
 2노드 e2-medium은 여기서 CPU 95%+ 도달. run-36에서 대규모 Pending 발생.
 
 CSI DaemonSet은 GKE managed이므로 리소스 패치 불가:
@@ -25,7 +25,7 @@ CSI DaemonSet은 GKE managed이므로 리소스 패치 불가:
 - `csi-secrets-store-provider-gke`: 노드당 50m (2노드 = 100m)
 - **합계: 240m** — 이 값은 줄일 수 없다.
 
-→ ch6 진입 전, ch4 관측성 스택의 CPU를 선제 축소해야 한다:
+→ ch6 진입 전, ch4 관측 가능성 스택의 CPU를 선제 축소해야 한다:
   Prometheus 100→5m, Alertmanager 25→5m, Grafana 50→5m, operator 25→5m, Loki 10→5m
 → B/G 배포 중이면 replicas를 2→1로 축소하여 Pod 수를 줄인다.
 
