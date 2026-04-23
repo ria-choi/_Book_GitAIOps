@@ -4,6 +4,24 @@
 > 본 파일은 Gemini 한정 차이점만 다루며, 책 본문 가이드는 **반드시 같은 디렉터리의
 > `CLAUDE.md`를 먼저 읽어주세요**.
 
+## 0. 🚨 CRITICAL: 자율 실행 모드 강제
+
+**이 책의 모든 prompt를 받으면 다음과 같이 행동하세요. 예외 없음.**
+
+✅ **반드시 해야 할 것**:
+- `gcloud`, `kubectl`, `helm`, `curl`, `git` 등 도구를 **본인이 직접 호출**
+- 매 단계 결과를 검증한 후 표 형식으로 보고
+- 책의 prompt가 단순해도 (예: "X 설치해줘", "X 만들고 배포해줘") 위 모드로 동작
+- 작업 완료 후 검증 결과 (Pod 상태, /health 응답 등)를 응답에 포함
+
+❌ **절대 하지 말 것**:
+- 사용자에게 "다음 명령을 실행하세요" 식으로 명령 안내만 하기
+- "원하시면 다음 단계를 진행할 수 있습니다" 식의 수동 위임
+- 파일 편집만 하고 git/build/deploy 명령 미실행
+
+**이유**: 본 책은 Claude Code/Codex CLI에서 자율 실행을 전제로 설계되었습니다.
+Gemini가 passive 모드로 동작하면 책의 학습 흐름이 깨집니다.
+
 ## 1. 인증 (가장 중요)
 
 Gemini API의 Free Tier는 **Pro 모델 quota=0** (2026-04-01 정책 변경)이므로 책 실습엔 **부적합**합니다.
@@ -74,16 +92,30 @@ unset GEMINI_API_KEY                         # API key 무력화
 
 세 디렉터리는 도구 명칭(Edit/Write 등)과 무관하므로 어느 에이전트에서나 동일하게 동작합니다.
 
-## 5. 권장 prompt 형식 (Gemini 한정)
+## 5. Prompt 형식 (책 본문 그대로 사용)
 
-Gemini의 보수적 동작을 우회하기 위해, 책 prompt에 다음 명시 권장:
+위 §0 (자율 실행 모드 강제)가 본 GEMINI.md를 통해 전달되면, **책 prompt를 그대로 사용**해도 자율 실행됩니다:
 
-| 일반 (Claude/Codex 무관) | Gemini 권장 |
+| 책 본문 prompt | Gemini 동작 (§0 적용 시) |
 |---|---|
-| "Notiflex 앱 만들고 배포해줘" | "Notiflex 앱 만들고 배포해줘. **도구를 직접 호출하여 git, build, kubectl 명령을 실행해라**." |
-| "ArgoCD 설치해줘" | "ArgoCD 설치해줘. **kubectl, helm 명령을 직접 실행하고 결과를 검증하라**." |
+| "Notiflex 앱 만들고 배포해줘" | ✅ git/build/deploy/검증 자율 실행 |
+| "ArgoCD 설치해줘" | ✅ kubectl/helm 자율 실행 + 검증 |
 
-## 6. 다른 에이전트 AI
+**§0 미적용 시 우회**: 만약 GEMINI.md가 자동 로드되지 않는 환경(다른 디렉터리에서 실행 등)에서는 prompt에 "**도구를 직접 호출하여 실행해라**"를 명시적으로 추가하세요.
+
+## 6. 3-prompt 패턴 호환 (codex와 동일 한계)
+
+책의 일부 서브챕터는 **탐색 → 비교 → 실행** 3단계 prompt 패턴을 사용합니다.
+Gemini CLI의 `-p` 비대화형 모드는 매 호출이 fresh session(메모리 없음)이므로,
+**비교 단계의 "다른 도구도 있다고 했는데"** 같은 모호한 prompt는 컨텍스트 손실 발생.
+
+**권장 우회**: 비교 prompt에 명시적 주제어 포함
+- 책 원본: "다른 도구도 있다고 했는데, 비교하면 어때?"
+- Gemini용: "**ArgoCD 외 다른 GitOps 도구**도 있다고 했는데, 비교하면 어때?"
+
+대안: `gemini --resume <session>`으로 세션 메모리 보존 (codex 대비 강점).
+
+## 7. 다른 에이전트 AI
 
 - Codex CLI: `AGENTS.md` (별도 파일) — 본 책 저장소 루트에 있음
 - Claude Code: `CLAUDE.md` (책 본문 가이드)
