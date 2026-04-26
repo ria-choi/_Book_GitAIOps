@@ -89,6 +89,7 @@ mode: auto
 | Blue/Green 배포 설정해줘 | 실행 | `prompt-guardrails/ch5/5.3-bluegreen.md` |
 | 실제로 새 버전을 배포하면 Blue/Green이 어떻게 동작하는지 보고 싶어 | 실행 | `prompt-guardrails/ch5/5.3-bluegreen.md` |
 | 이번 장의 아키텍처 결정을 ADR로 기록해줘 | 실행 | `prompt-guardrails/ch5/5.4-adr.md` |
+| Ingress가 더 친숙한데, 바꾸는 게 나을지 의견만 알려줘 | 실행 | `prompt-guardrails/ch5/5.4-adr.md` |
 
 ### 6장: Enterprise를 위한 기반 정비
 | 독자 입력 예시 | 유형 | 참조 파일 |
