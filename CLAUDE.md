@@ -31,7 +31,10 @@ mode: auto
 | 독자 입력 예시 | 유형 | 참조 파일 |
 |---------------|------|-----------|
 | Claude Code 설치 확인 | 실행 | `prompt-guardrails/ch2/2.2-install-check.md` |
+| statusline 설정해줘 | 실행 | `prompt-guardrails/ch2/2.2-install-check.md` |
 | gcloud CLI 설치해줘 | 실행 | `prompt-guardrails/ch2/2.3-gcloud.md` |
+| 프로젝트는 my-gitaiops-project로, 리전은 서울(asia-northeast3)로 gcloud 기본값을 설정해줘 | 실행 | `prompt-guardrails/ch2/2.3-gcloud.md` |
+| Artifact Registry 인증 설정해줘 (서울 리전) | 실행 | `prompt-guardrails/ch2/2.3-gcloud.md` |
 | GitHub 저장소 만들어줘 | 실행 | `prompt-guardrails/ch2/2.4-github-repo.md` |
 | GKE 클러스터 생성해줘 | 실행 | `prompt-guardrails/ch2/2.5-gke-cluster.md` |
 | Notiflex 앱 만들고 배포해줘 | 실행 | `prompt-guardrails/ch2/2.6-build-deploy.md` |
@@ -44,13 +47,16 @@ mode: auto
 | 현재 환경에서 배포 자동화 도구는 어느 걸 쓰는 게 좋아? | 탐색 | `decision-guides/ch3/3.2-gitops-tool.md` |
 | 다른 도구도 있다고 했는데, 비교하면 어때? | 비교 | `decision-guides/ch3/3.2-gitops-tool.md` |
 | ArgoCD로 진행해줘 | 실행 | `prompt-guardrails/ch3/3.2-argocd.md` |
+| 이제 ArgoCD랑 내 GitHub 저장소 연결해줘 | 실행 | `prompt-guardrails/ch3/3.2-argocd.md` |
 | Rolling Update가 뭐야? | 탐색 | `decision-guides/ch3/3.3-rolling-update.md` |
 | API에 버전 정보 확인할 수 있는 기능 추가하고 배포해줘 | 실행 | `prompt-guardrails/ch3/3.3-rolling-update.md` |
+| 혹시 방금 배포한 버전에 문제가 있으면 어떻게 돌려? | 실행 | `prompt-guardrails/ch3/3.3-rolling-update.md` |
 | 지금 빌드할 때마다 명령어를 직접 치고 있는데, 이거 자동으로 돌게 할 수 없어? | 탐색 | `decision-guides/ch3/3.4-ci-tool.md` |
 | 다른 CI 도구도 있다고 했는데, 비교하면 어때? | 비교 | `decision-guides/ch3/3.4-ci-tool.md` |
 | GitHub Actions CI 만들어줘 | 실행 | `prompt-guardrails/ch3/3.4-github-actions.md` |
 | CI에서 빌드하면 자동으로 배포까지 되게 할 수 있어? | 탐색 | `decision-guides/ch3/3.5-ci-cd-integration.md` |
 | CI랑 ArgoCD 연결해줘 | 실행 | `prompt-guardrails/ch3/3.5-ci-argocd.md` |
+| 이제 코드만 고치고 push하면 진짜로 배포까지 자동으로 되는 거야? 한번 해보자 | 실행 | `prompt-guardrails/ch3/3.5-ci-argocd.md` |
 | CLAUDE.md에 다음 행동 규칙을 추가해줘 | 실행 | `prompt-guardrails/ch3/claudemd-example.md` |
 | notiflex-api deployment 지워줘 | 실행 | `prompt-guardrails/ch3/claudemd-example.md` |
 | notiflex-api 상태 확인해줘 | 실행 | `prompt-guardrails/ch3/claudemd-example.md` |
@@ -62,9 +68,12 @@ mode: auto
 | 클러스터에서 뭐가 돌아가고 있는지 어떻게 알 수 있어? | 탐색 | `decision-guides/ch4/4.2-metrics-monitoring.md` |
 | 다른 모니터링 도구도 있다고 했는데, 비교하면 어때? | 비교 | `decision-guides/ch4/4.2-metrics-monitoring.md` |
 | Prometheus랑 Grafana 설치해줘 | 실행 | `prompt-guardrails/ch4/4.2-prometheus-grafana.md` |
+| 설치 끝났으면 Grafana 화면 한번 보고 싶은데, 어떻게 접속해? | 실행 | `prompt-guardrails/ch4/4.2-prometheus-grafana.md` |
+| Prometheus가 데이터 수집하고 있는지 확인해줘 | 실행 | `prompt-guardrails/ch4/4.2-prometheus-grafana.md` |
 | 로그 수집 뭐 써? Pod 로그를 한곳에서 보고 싶어 | 탐색 | `decision-guides/ch4/4.3-logging.md` |
 | 다른 로그 수집 도구도 있다고 했는데, 비교하면 어때? | 비교 | `decision-guides/ch4/4.3-logging.md` |
 | Loki랑 Fluent Bit 설치해줘 | 실행 | `prompt-guardrails/ch4/4.3-loki-fluentbit.md` |
+| 설치는 됐는데, 로그가 진짜 들어오고 있는지 Grafana에서 볼 수 있어? | 실행 | `prompt-guardrails/ch4/4.3-loki-fluentbit.md` |
 | 문제가 생기면 자동으로 알림 받을 수 있어? | 탐색 | `decision-guides/ch4/4.4-alerting.md` |
 | 다른 알림 방식도 있다고 했는데, 비교하면 어때? | 비교 | `decision-guides/ch4/4.4-alerting.md` |
 | 알림 설정해줘 | 실행 | `prompt-guardrails/ch4/4.4-alerting.md` |
@@ -78,6 +87,8 @@ mode: auto
 | 배포할 때 서비스가 잠깐이라도 끊길 수 있잖아. 더 안전하게 배포하는 방법 없어? | 탐색 | `decision-guides/ch5/5.3-deployment-strategy.md` |
 | Argo Rollouts 말고 다른 건? Flagger나 Istio는 어때? | 비교 | `decision-guides/ch5/5.3-deployment-strategy.md` |
 | Blue/Green 배포 설정해줘 | 실행 | `prompt-guardrails/ch5/5.3-bluegreen.md` |
+| 실제로 새 버전을 배포하면 Blue/Green이 어떻게 동작하는지 보고 싶어 | 실행 | `prompt-guardrails/ch5/5.3-bluegreen.md` |
+| 이번 장의 아키텍처 결정을 ADR로 기록해줘 | 실행 | `prompt-guardrails/ch5/5.4-adr.md` |
 
 ### 6장: Enterprise를 위한 기반 정비
 | 독자 입력 예시 | 유형 | 참조 파일 |
@@ -92,6 +103,7 @@ mode: auto
 | Canary랑 Blue/Green 차이를 다시 정리해줘. 다른 방법도 있다고 했는데, 비교하면 어때? | 비교 | `decision-guides/ch6/6.3-canary-vs-bluegreen.md` |
 | Canary 배포로 변경해줘 | 실행 | `prompt-guardrails/ch6/6.3-canary.md` |
 | claude-context/에 아키텍처 스냅샷 정리해줘 | 실행 | `prompt-guardrails/ch6/6.4-architecture-context.md` |
+| claude-context/에 현재 아키텍처 상태를 정리해줘 (컴포넌트·연결·설정) | 실행 | `prompt-guardrails/ch6/6.4-architecture-context.md` |
 
 ### 7장: 규모 확장
 | 독자 입력 예시 | 유형 | 참조 파일 |
@@ -102,6 +114,7 @@ mode: auto
 | ArgoCD에서 앱이 여러 개인데 관리가 힘들어. 한 번에 관리하는 방법 없어? | 탐색 | `decision-guides/ch7/7.3-multi-app-management.md` |
 | App of Apps 말고 다른 방법도 있어? 비교하면 어때? | 비교 | `decision-guides/ch7/7.3-multi-app-management.md` |
 | App of Apps 패턴 적용해줘 | 실행 | `prompt-guardrails/ch7/7.3-app-of-apps.md` |
+| 앱의 설치가 순서가 있어야 할 것 같아. 설정해줘 | 실행 | `prompt-guardrails/ch7/7.3-app-of-apps.md` |
 | 고객별로 환경을 분리하려면 어떻게 해? | 탐색 | `decision-guides/ch7/7.4-multi-tenancy.md` |
 | Namespace 분리 말고 다른 방법도 있어? 비교하면 어때? | 비교 | `decision-guides/ch7/7.4-multi-tenancy.md` |
 | 멀티테넌시 구성해줘 | 실행 | `prompt-guardrails/ch7/7.4-multi-tenancy.md` |
@@ -128,7 +141,10 @@ mode: auto
 | 독자 입력 예시 | 유형 | 참조 파일 |
 |---------------|------|-----------|
 | 지금까지 구성한 notiflex-platform 저장소를 분석해줘 | 실행 | `prompt-guardrails/ch9/9.1-repo-analysis.md` |
+| 커밋 히스토리도 분석해줘 | 실행 | `prompt-guardrails/ch9/9.1-repo-analysis.md` |
+| 클러스터 상태도 보여줘 | 실행 | `prompt-guardrails/ch9/9.1-repo-analysis.md` |
 | 지금까지 쌓인 것들 돌아봐줘 | 실행 | `prompt-guardrails/ch9/9.2-retrospective.md` |
+| 자원은 어떻게 쓰이고 있어? | 실행 | `prompt-guardrails/ch9/9.2-retrospective.md` |
 | 온보딩 문서 만들어줘 | 실행 | `prompt-guardrails/appendix-a/onboarding.md` |
 | Git, AI, Ops 연결 분석해줘 | 실행 | `prompt-guardrails/ch9/9.4-gitaiops.md` |
 | 다음 단계 제안해줘 | 실행 | `prompt-guardrails/ch9/9.5-wrap-up.md` |
