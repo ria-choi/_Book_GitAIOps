@@ -203,7 +203,7 @@ kubectl get pods -n notiflex
    - 예: `prompt-guardrails/ch2/2.5-gke-cluster.md` → `result-templates/ch2/2.5-gke-cluster.md`
    - 체크리스트 항목을 하나씩 검증한다.
 4. `💬 질문` 블록이 있으면 독자에게 "이런 질문을 해볼 수 있습니다"라고 안내한다.
-5. 각 장의 마지막 섹션 완료 후, `/update-docs` 스킬 실행을 안내한다.
+5. 각 장의 마지막 섹션 완료 후, 독자에게 `/update-docs` 실행을 요청한다. 독자가 `/update-docs`를 입력하면 즉시 실행한다.
 
 ### JOURNEY.md 관리
 
