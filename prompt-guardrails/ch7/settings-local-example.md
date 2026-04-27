@@ -4,6 +4,7 @@
 - ch7.4(멀티테넌시)까지 완료. enterprise namespace에 notiflex-api Application이 ArgoCD App of Apps로 관리되는 상태.
 - 노드풀 4개(default-pool, api-pool, worker-pool, ops-pool)가 ch7.2에서 만들어진 상태.
 - ArgoCD selfHeal 활성화 (ch3.2 이후 기본값).
+- **Claude Code가 `notiflex-platform/` 디렉터리에서 실행 중**이어야 `.claude/settings.local.json`이 인식된다. `pwd`로 현재 경로를 확인한다.
 
 ## 실행 지침
 
@@ -11,9 +12,12 @@
 
 ### 단계 1: settings.local.json 만들기
 
-독자는 `_Book_GitAIOps/` 디렉터리에서 Claude Code를 실행하므로, `.claude/settings.local.json`을 이 디렉터리 기준으로 생성한다. Claude Code는 현재 작업 디렉터리의 `.claude/settings.local.json`을 자동으로 읽는다.
+먼저 기존 파일 유무를 확인하고 백업한다:
 
-> ⚠️ **`notiflex-platform/.claude/`에 만들지 않는다**: 독자의 cwd는 `_Book_GitAIOps/`이므로, `notiflex-platform/` 하위의 파일은 현재 세션에서 읽히지 않는다.
+```bash
+# 기존 파일이 있으면 백업 (덮어쓰기 전 보존)
+[ -f .claude/settings.local.json ] && cp .claude/settings.local.json .claude/settings.local.json.bak && echo "기존 파일 백업됨"
+```
 
 `.claude/settings.local.json`을 다음 내용으로 생성한다:
 
@@ -60,23 +64,31 @@ gcloud container node-pools create worker-pool \
 
 ### 단계 4: 되돌림 (체험 종료)
 
-독자가 "방금 만든 settings.local.json 되돌려줘"라고 입력하면, AI는 `.claude/settings.local.json` 파일을 삭제한다.
+독자가 "방금 만든 settings.local.json 되돌려줘"라고 입력하면, 백업 존재 여부에 따라 분기한다:
 
 ```bash
-rm .claude/settings.local.json
+# 백업이 있으면 복원, 없으면 삭제
+if [ -f .claude/settings.local.json.bak ]; then
+  mv .claude/settings.local.json.bak .claude/settings.local.json
+  echo "settings.local.json 복원 완료 (체험 전 상태로)"
+else
+  rm .claude/settings.local.json
+  echo "settings.local.json 삭제 완료"
+fi
 ```
 
-`ls .claude/ 2>/dev/null`로 파일이 사라졌는지 확인. CLAUDE.md 자연어 규칙만 남고, 기술적 강제는 풀린다.
-
-> ⚠️ **삭제 전 백업**: 기존에 `.claude/settings.local.json`이 있었다면 체험용 파일로 덮어쓴 것이다. 되돌릴 때 단순 삭제가 아니라 원래 내용으로 복원해야 한다. 단계 1 전에 `test -f .claude/settings.local.json && cp .claude/settings.local.json .claude/settings.local.json.bak`으로 백업해뒀다면 `mv .claude/settings.local.json.bak .claude/settings.local.json`으로 복원한다.
+`ls .claude/`로 상태를 확인한다. 기존 파일이 없었던 경우 settings.local.json이 사라지고 CLAUDE.md 자연어 규칙만 남는다. 기존 파일이 있었던 경우 원래 내용으로 복원된다.
 
 ### 단계 5: 누락 안전망 (체험 잔존 감지)
 
 단계 4 직후 또는 다음 장(8장) 실행 시작 시 자동 검증을 수행한다.
 
 ```bash
-# settings.local.json이 잔존하면 단계 4 누락
+# settings.local.json이 잔존하면 단계 4 누락 (notiflex-platform/ 내부 기준 경로)
 test -f .claude/settings.local.json && echo "⚠️ settings.local.json 잔존 — 단계 4(되돌림) 누락" || echo "OK: 잔존 없음"
+
+# .bak 파일이 남아있으면 단계 4에서 복원 미완료
+test -f .claude/settings.local.json.bak && echo "⚠️ .bak 파일 잔존 — 단계 4 복원 미완료" || true
 
 # worker-pool이 사라졌으면 단계 3-복구 누락
 gcloud container node-pools list --cluster=notiflex-cluster --zone=asia-northeast3-a 2>/dev/null | grep -q worker-pool && echo "OK: worker-pool 정상" || echo "⚠️ worker-pool 누락 — 단계 3-복구 필요"
