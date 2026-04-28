@@ -36,7 +36,7 @@ description: 저장소 문서를 현재 작업 기준으로 갱신하고 변경 
      **현재 리소스**: 노드풀이 추가·변경됐으면 `kubectl --context gke-sysnet4admin_book_gitaiops get nodes -L cloud.google.com/gke-nodepool`로 조회해 테이블을 갱신한다.
    - `CLAUDE.md` — 규칙이나 컨텍스트가 바뀐 경우
    - `docs/architecture-decisions.md` — 결정 사항 누적 (도입: 5장)
-     **파일이 존재하는 경우에만**: `JOURNEY.md`의 도구 선택 기록 테이블에서 직전 장에 새로 추가된 결정을 찾아 ADR 항목으로 추가한다. 번호는 기존 마지막 ADR 번호 +1부터 시작한다. 파일이 없으면 건너뛴다 (신설은 ch5 가드레일이 담당).
+     **파일이 존재하는 경우에만**: `JOURNEY.md`의 도구 선택 기록 테이블에서 직전 장에 새로 추가된 결정을 **모두** 찾아 ADR 항목으로 추가한다. 같은 장에 여러 결정이 있으면 전부 포함한다 (예: ch7에 nodeSelector + App of Apps가 있으면 둘 다 ADR로 변환). 번호는 기존 마지막 ADR 번호 +1부터 순서대로 매긴다. 파일이 없으면 건너뛴다 (신설은 ch5 가드레일이 담당).
    - `claude-context/` — 현재 아키텍처 스냅샷 (도입: 6장)
    - `command-guardrails/` — 위험 명령 절차 (도입: 8장)
 
