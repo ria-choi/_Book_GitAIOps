@@ -54,6 +54,10 @@ description: 저장소 문서를 현재 작업 기준으로 갱신하고 변경 
      - 이유 3
      - 이유 4 (필요 시)
      ```
+     **ADR 삽입 위치 (필수)**: 파일 제목(`# Architecture Decision Records`)을 anchor로 쓰면 새 ADR이 파일 상단에 삽입된다. 반드시 아래 순서를 따른다:
+     1. `tail -5 docs/architecture-decisions.md` 로 파일 끝을 먼저 확인한다
+     2. 마지막 줄(이전 ADR의 마지막 이유 불릿)을 Edit의 `old_string` anchor로 사용한다
+     3. 추가 후 `grep "^## ADR-" docs/architecture-decisions.md` 로 번호 오름차순 검증한다 — 순서가 깨져 있으면 파일을 재정렬한 뒤 커밋한다
    - `claude-context/` — 현재 아키텍처 스냅샷 (도입: 6장)
      **파일이 존재하는 경우**: 이번 장에서 아키텍처가 변경됐으면 반드시 갱신한다. 갱신 대상 예시: 노드풀 추가(ch7.2), 새 네임스페이스(ch7.4), Kafka/Tempo/CronJob 추가(ch8). 파일 맨 위의 "N장 완료 시점" 텍스트도 현재 장으로 업데이트한다. 건너뛰면 AI가 오래된 아키텍처를 참조하게 된다.
    - `command-guardrails/` — 위험 명령 절차 (도입: 8장)
