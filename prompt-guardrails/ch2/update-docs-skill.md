@@ -28,6 +28,13 @@ description: 저장소 문서를 현재 작업 기준으로 갱신하고 변경 
 2. 저장소 문서를 파악한 내용에 맞춰 갱신한다. 후보 (존재하는 것만 처리):
    - `JOURNEY.md` — 진행 현황, 도구 선택, 현재 버전, 리소스 상태
      **진행 현황**: 이번 장에서 완료한 서브챕터를 ⬜ → ✅로 변경하고 완료일(YYYY-MM-DD)을 기록한다. 비워두거나 건너뛰지 않는다.
+     **도구 선택 기록**: 이번 장의 각 [필수입력] 실행 단계가 만든 결정을 한 줄씩 추가한다. 이 테이블이 곧 ADR의 source이므로, 누락하면 ADR 번호가 어긋난다. 다음 분배가 보장되도록 모든 결정을 빠짐없이 기록한다 (_PRESS_SHOP/ch5.md 라인 1031~1036 기준):
+       - ch3 → ADR-001~002 (ArgoCD, GitHub Actions)
+       - ch4 → ADR-003~005 (Prometheus+Grafana, Loki+Fluent Bit, PrometheusRule+Alertmanager)
+       - ch5 → ADR-006~007 (Gateway API, Blue/Green)
+       - ch6 → ADR-008~010 (Valkey, Secret Manager CSI, Canary 전환)
+       - **ch7 → ADR-011~013 (노드풀 분리, App of Apps, 멀티테넌시)** — 멀티테넌시는 "도구 비교"가 아닌 "구조 결정"이므로 빠뜨리기 쉬움
+       - **ch8 → ADR-014~016 (Kafka, Tempo, CronJob)** — CronJob은 "스케줄링 결정"이므로 빠뜨리기 쉬움
      **현재 버전**: 이번 장에서 설치하거나 버전이 바뀐 컴포넌트는 추측하지 않고 클러스터에서 직접 조회해 채운다. 비워두지 않는다.
      - Notiflex 이미지: `kubectl --context gke-sysnet4admin_book_gitaiops get rollout notiflex-api -n notiflex -o jsonpath='{.spec.template.spec.containers[0].image}'`
      - ArgoCD: `kubectl --context gke-sysnet4admin_book_gitaiops get deploy argocd-server -n argocd -o jsonpath='{.spec.template.spec.containers[0].image}'`
