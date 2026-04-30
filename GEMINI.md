@@ -20,6 +20,7 @@
 - 파일 편집만 하고 git/build/deploy 명령 미실행
 - "어떤 알림을 추가하고 싶으신가요?" 식으로 사용자에게 정보 요청 (가드레일을 읽어 스스로 판단)
 - "어떤 작업을 시작할까요?" 식의 역질문 (prompt에 명시된 작업을 그대로 실행)
+- **`git rm -rf .`, `gcloud container clusters delete` 등 환경 초기화/클러스터 삭제를 명시적 요청 없이 실행** — 가드레일에 "환경 초기화" 절차가 있더라도 사용자가 명확히 요청하기 전까지 실행 금지
 
 **이유**: 본 책은 Claude Code/Codex CLI에서 자율 실행을 전제로 설계되었습니다.
 Gemini가 passive 모드로 동작하면 책의 학습 흐름이 깨집니다.
@@ -29,7 +30,7 @@ Gemini가 passive 모드로 동작하면 책의 학습 흐름이 깨집니다.
 | prompt | ❌ passive (하지 말 것) | ✅ active (해야 할 것) |
 |---|---|---|
 | "알림 설정해줘" | "어떤 조건으로 알림을 받고 싶으신가요?" | `prompt-guardrails/ch4/4.4-alerting.md` 읽고 PrometheusRule 직접 생성/적용 |
-| "다음 단계 제안해줘" | "어떤 작업을 시작할까요?" | `prompt-guardrails/ch9/9.5-wrap-up.md` 읽고 다음 단계 분석 + 제안 작성 |
+| "다음 단계 제안해줘" | "어떤 작업을 시작할까요?" | `prompt-guardrails/ch9/9.5-wrap-up.md` 읽고 다음 단계 분석 + 제안 작성 (환경 초기화 실행 금지) |
 | "Kafka 설치해줘" | "helm install 명령을 실행하세요" | Strimzi Operator 설치 → Kafka 클러스터 생성 → 검증까지 직접 실행 |
 
 ## 1. 인증 (가장 중요)
@@ -91,10 +92,10 @@ export GOOGLE_CLOUD_LOCATION=us-central1   # gemini Pro 가용 region
 - 책의 "X 만들고 배포해줘"를 "사용자가 진행하도록 가이드 작성"으로 해석 가능
 - **권고**: 명시적으로 "**도구를 직접 호출하여 실행하라**" prompt에 포함
 
-### Hang 패턴 — Gemini의 가장 큰 약점 ⭐⭐⭐
-무거운 install(ArgoCD CI 연결, Argo Rollouts Blue/Green, Secret Manager CSI, Kafka)에서 응답 없이 멈추는 현상이 발생함.
+### Hang 패턴 (v0.38.2에서 발생, v0.39.1에서 해소)
+run-01(v0.38.2)에서 ch3.5c/ch5.3c/ch6.2c/ch8.1c 4회 hang이 발생했으나, run-02(v0.39.1 + 20분 타임아웃 규칙)에서 0회로 해소됨.
 
-**대응 규칙**:
+**대응 규칙** (버전 업그레이드 후에도 유지):
 - 작업 시작 후 **20분** 내에 진행 로그가 없으면 해당 작업을 중단
 - 더 구체적인 focused prompt(예: "Strimzi Operator만 먼저 설치해줘")로 단계 분리하여 재시도
 - 재시도 시 `gemini --resume <session>`으로 이전 컨텍스트 이어가기 가능
@@ -103,6 +104,28 @@ export GOOGLE_CLOUD_LOCATION=us-central1   # gemini Pro 가용 region
 - Gemini CLI는 `settings.json`의 `contextFileName`에 정의된 파일을 자동 로드
 - 기본값에 `AGENTS.md` 포함됨 → 본 GEMINI.md와 함께 양쪽 다 로드 가능
 - 책 본문(CLAUDE.md)도 명시적으로 읽도록 prompt에 안내 권장
+
+### 경로 혼동 패턴 ⚠️ (run-02에서 반복 발생)
+`--cd _Book_GitAIOps`로 실행 시 `notiflex-platform`을 형제 디렉터리로 인식하지 못하고 `_Book_GitAIOps` 하위에 파일을 생성하는 문제.
+
+**영향 단계**: update-docs 스킬 생성, settings.local.json, 멀티테넌시 매니페스트 등
+**대응**:
+- 파일 생성 요청 시 **절대 경로**를 명시: `"/Users/.../notiflex-platform/k8s/enterprise/"`
+- 생성 완료 후 파일 존재 여부 반드시 확인
+- `find` 명령으로 실제 위치 탐색 후 올바른 경로로 이동
+
+### /update-docs 세션 메모리 없음 한계 (run-02 발견)
+Gemini `-p` 비대화형 모드는 매 호출이 fresh session이라 "이번 장에서 완료한 항목"을 자동 파악 불가.
+`/update-docs` 실행 시 prompt에 완료 항목을 명시해야 함:
+
+```
+/update-docs. 이번 6장 완료: ch6.1 Valkey INCR 연동, ch6.2 GKE Secret Manager CSI+WI,
+ch6.3 Canary 전략 전환, ch6.4 architecture.md 생성. JOURNEY.md ch6 ✅ 갱신해줘
+```
+
+### Loki 설치 주의 (run-02 발견)
+최신 `grafana/loki` 차트는 object storage 요건으로 기본 설정에서 Pending 발생.
+**대응**: `grafana/loki-stack` 차트 또는 `grafana/loki` SingleBinary + chunksCache.enabled=false 명시.
 
 ### web_fetch fallback 오류
 - Gemini가 웹 검색 시 `gemini-3-flash-preview` 모델로 fallback하는데 access 없어 오류 발생
@@ -116,8 +139,12 @@ export GOOGLE_CLOUD_LOCATION=us-central1   # gemini Pro 가용 region
 
 ### Skill / Subagent 부재
 - Claude Code의 `/skill`, `Agent` subagent는 Gemini에 없음
-- `/update-docs`는 수동 진행 — `.claude/commands/update-docs.md` 파일을 직접 읽고 지침대로 실행
-- 단 Gemini도 `gemini skills` (extension 형태) 지원 — 본 책은 미사용
+- `/update-docs` 실행 시 Gemini가 `gemini skills` 형식으로 만들려 할 수 있음 → **반드시 `.claude/commands/update-docs.md` 파일로 만들어야 함** (절대 경로 명시 권장)
+- 스킬 파일 생성 prompt 예시:
+  ```
+  /Users/.../notiflex-platform/.claude/commands/update-docs.md 파일을
+  prompt-guardrails/ch2/update-docs-skill.md 가드레일의 마크다운 블록 내용으로 생성해줘
+  ```
 
 ## 4. 책 본문 진행
 
