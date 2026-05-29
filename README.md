@@ -4,6 +4,18 @@
 </a>
 </br>
 
+![Claude Code](https://img.shields.io/badge/Claude_Code-D97757?style=flat-square&logo=anthropic&logoColor=white)
+![GitAIOps](https://img.shields.io/badge/GitAIOps-0F172A?style=flat-square&logo=git&logoColor=white)
+![GitOps](https://img.shields.io/badge/GitOps-EF7B4D?style=flat-square&logo=argo&logoColor=white)
+![GKE](https://img.shields.io/badge/GKE-4285F4?style=flat-square&logo=googlecloud&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white)
+![ArgoCD](https://img.shields.io/badge/ArgoCD-EF7B4D?style=flat-square&logo=argo&logoColor=white)
+![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=flat-square&logo=prometheus&logoColor=white)
+![Grafana](https://img.shields.io/badge/Grafana-F46800?style=flat-square&logo=grafana&logoColor=white)
+![Observability](https://img.shields.io/badge/Observability-7B68EE?style=flat-square&logo=opentelemetry&logoColor=white)
+![CI/CD](https://img.shields.io/badge/CI%2FCD-2088FF?style=flat-square&logo=githubactions&logoColor=white)
+![Cloud Native](https://img.shields.io/badge/Cloud_Native-231F20?style=flat-square&logo=cncf&logoColor=white)
+
 이 저장소는 [AI 시대에 개발자가 알아야 하는 인프라 구성 배포 with 클로드 코드]() 책의 실습을 위한 코드를 제공합니다.
 
 Claude Code와 함께 GKE 위에서 SMB → Enterprise 수준의 배포 파이프라인을 구축하고, 그 과정에서 자연스럽게 살아있는 운영 표준(GitAIOps)을 만들어갑니다.
