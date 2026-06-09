@@ -93,7 +93,7 @@ export GOOGLE_CLOUD_LOCATION=us-central1   # gemini Pro 가용 region
 - **권고**: 명시적으로 "**도구를 직접 호출하여 실행하라**" prompt에 포함
 
 ### Hang 패턴 (v0.38.2에서 발생, v0.39.1에서 해소)
-run-01(v0.38.2)에서 ch3.5c/ch5.3c/ch6.2c/ch8.1c 4회 hang이 발생했으나, run-02(v0.39.1 + 20분 타임아웃 규칙)에서 0회로 해소됨.
+v0.38.2에서 ch3.5c/ch5.3c/ch6.2c/ch8.1c 4회 hang이 발생했으나, v0.39.1 + 20분 타임아웃 규칙에서 0회로 해소됨.
 
 **대응 규칙** (버전 업그레이드 후에도 유지):
 - 작업 시작 후 **20분** 내에 진행 로그가 없으면 해당 작업을 중단
@@ -105,7 +105,7 @@ run-01(v0.38.2)에서 ch3.5c/ch5.3c/ch6.2c/ch8.1c 4회 hang이 발생했으나, 
 - 기본값에 `AGENTS.md` 포함됨 → 본 GEMINI.md와 함께 양쪽 다 로드 가능
 - 책 본문(CLAUDE.md)도 명시적으로 읽도록 prompt에 안내 권장
 
-### 경로 혼동 패턴 ⚠️ (run-02에서 반복 발생)
+### 경로 혼동 패턴 ⚠️ (호환성 테스트에서 반복 발생)
 `--cd _Book_GitAIOps`로 실행 시 `notiflex-platform`을 형제 디렉터리로 인식하지 못하고 `_Book_GitAIOps` 하위에 파일을 생성하는 문제.
 
 **영향 단계**: update-docs 스킬 생성, settings.local.json, 멀티테넌시 매니페스트 등
@@ -114,7 +114,7 @@ run-01(v0.38.2)에서 ch3.5c/ch5.3c/ch6.2c/ch8.1c 4회 hang이 발생했으나, 
 - 생성 완료 후 파일 존재 여부 반드시 확인
 - `find` 명령으로 실제 위치 탐색 후 올바른 경로로 이동
 
-### /update-docs 세션 메모리 없음 한계 (run-02 발견)
+### /update-docs 세션 메모리 없음 한계 (호환성 테스트에서 발견)
 Gemini `-p` 비대화형 모드는 매 호출이 fresh session이라 "이번 장에서 완료한 항목"을 자동 파악 불가.
 `/update-docs` 실행 시 prompt에 완료 항목을 명시해야 함:
 
@@ -123,7 +123,7 @@ Gemini `-p` 비대화형 모드는 매 호출이 fresh session이라 "이번 장
 ch6.3 Canary 전략 전환, ch6.4 architecture.md 생성. JOURNEY.md ch6 ✅ 갱신해줘
 ```
 
-### Loki 설치 주의 (run-02 발견)
+### Loki 설치 주의 (호환성 테스트에서 발견)
 최신 `grafana/loki` 차트는 object storage 요건으로 기본 설정에서 Pending 발생.
 **대응**: `grafana/loki-stack` 차트 또는 `grafana/loki` SingleBinary + chunksCache.enabled=false 명시.
 

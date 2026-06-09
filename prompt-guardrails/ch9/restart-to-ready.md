@@ -58,7 +58,7 @@ git push
 Gateway API(ch5.2)에서 생성한 리소스는 클러스터 삭제 시 남을 수 있다:
 
 ```bash
-PROJECT=inlaid-vehicle-484800-n8
+PROJECT=$(gcloud config get-value project)   # ch2.3에서 설정한 기본 프로젝트
 REGION=asia-northeast3
 
 # 1. Forwarding Rules
@@ -116,35 +116,39 @@ gcloud compute disks list --project=$PROJECT --format="table(name,zone,status)" 
 모든 정리 후 아래 명령으로 잔존 리소스를 확인한다:
 
 ```bash
+PROJECT=$(gcloud config get-value project)
+
 # 저장소
 ls notiflex-platform/   # .git만 남아있어야 함
 
 # 클러스터
-gcloud container clusters list --project=inlaid-vehicle-484800-n8
+gcloud container clusters list --project=$PROJECT
 
 # Service Accounts (notiflex/github-ci 관련만)
-gcloud iam service-accounts list --project=inlaid-vehicle-484800-n8 | grep -E 'notiflex|github-ci'
+gcloud iam service-accounts list --project=$PROJECT | grep -E 'notiflex|github-ci'
 
 # Secrets
-gcloud secrets list --project=inlaid-vehicle-484800-n8 | grep notiflex
+gcloud secrets list --project=$PROJECT | grep notiflex
 
 # Artifact Registry
-gcloud artifacts repositories list --location=asia-northeast3 --project=inlaid-vehicle-484800-n8 | grep notiflex
+gcloud artifacts repositories list --location=asia-northeast3 --project=$PROJECT | grep notiflex
 ```
 
 모든 결과가 비어있으면 정리 완료.
 
 ```bash
+PROJECT=$(gcloud config get-value project)
+
 # Gateway API 고아 리소스
-gcloud compute forwarding-rules list --project=inlaid-vehicle-484800-n8 --format="table(name)"
-gcloud compute target-http-proxies list --project=inlaid-vehicle-484800-n8 --format="table(name)"
-gcloud compute url-maps list --project=inlaid-vehicle-484800-n8 --format="table(name)"
-gcloud compute addresses list --project=inlaid-vehicle-484800-n8 --format="table(name)"
-gcloud compute backend-services list --project=inlaid-vehicle-484800-n8 --format="table(name)"
-gcloud compute health-checks list --project=inlaid-vehicle-484800-n8 --format="table(name)"
+gcloud compute forwarding-rules list --project=$PROJECT --format="table(name)"
+gcloud compute target-http-proxies list --project=$PROJECT --format="table(name)"
+gcloud compute url-maps list --project=$PROJECT --format="table(name)"
+gcloud compute addresses list --project=$PROJECT --format="table(name)"
+gcloud compute backend-services list --project=$PROJECT --format="table(name)"
+gcloud compute health-checks list --project=$PROJECT --format="table(name)"
 
 # Persistent Disks (PVC 잔존)
-gcloud compute disks list --project=inlaid-vehicle-484800-n8 --filter="zone:asia-northeast3" --format="table(name)"
+gcloud compute disks list --project=$PROJECT --filter="zone:asia-northeast3" --format="table(name)"
 ```
 
 ## 주의사항

@@ -28,7 +28,7 @@ description: 저장소 문서를 현재 작업 기준으로 갱신하고 변경 
 2. 저장소 문서를 파악한 내용에 맞춰 갱신한다. 후보 (존재하는 것만 처리):
    - `JOURNEY.md` — 진행 현황, 도구 선택, 현재 버전, 리소스 상태
      **진행 현황**: 이번 장에서 완료한 서브챕터를 ⬜ → ✅로 변경하고 완료일(YYYY-MM-DD)을 기록한다. 비워두거나 건너뛰지 않는다.
-     **도구 선택 기록**: 이번 장의 각 [필수입력] 실행 단계가 만든 결정을 한 줄씩 추가한다. 이 테이블이 곧 ADR의 source이므로, 누락하면 ADR 번호가 어긋난다. 다음 분배가 보장되도록 모든 결정을 빠짐없이 기록한다 (_PRESS_SHOP/ch5.md 라인 1031~1036 기준):
+     **도구 선택 기록**: 이번 장의 각 [필수입력] 실행 단계가 만든 결정을 한 줄씩 추가한다. 이 테이블이 곧 ADR의 source이므로, 누락하면 ADR 번호가 어긋난다. 다음 분배가 보장되도록 모든 결정을 빠짐없이 기록한다:
        - ch3 → ADR-001~002 (ArgoCD, GitHub Actions)
        - ch4 → ADR-003~005 (Prometheus+Grafana, Loki+Fluent Bit, PrometheusRule+Alertmanager)
        - ch5 → ADR-006~007 (Gateway API, Blue/Green)
