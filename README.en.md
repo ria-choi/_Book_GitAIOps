@@ -1,6 +1,6 @@
 # Infrastructure Provisioning & Deployment for the AI Era — with Claude Code
 
-[🇰🇷 한국어](README.md) | **🇬🇧 English**
+[한국어](README.md) | **English**
 
 ![Claude Code](https://img.shields.io/badge/Claude_Code-D97757?style=flat-square&logo=anthropic&logoColor=white)
 ![GitAIOps](https://img.shields.io/badge/GitAIOps-0F172A?style=flat-square&logo=git&logoColor=white)
