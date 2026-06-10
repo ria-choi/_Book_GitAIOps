@@ -1,4 +1,4 @@
-# Infrastructure Provisioning & Deployment for the AI Era — with Claude Code
+# AI Agent-Driven Infrastructure: Build, Deploy, and Operate with Claude Code
 
 [한국어](README.md) | **English**
 
@@ -14,9 +14,9 @@
 ![CI/CD](https://img.shields.io/badge/CI%2FCD-2088FF?style=flat-square&logo=githubactions&logoColor=white)
 ![Cloud Native](https://img.shields.io/badge/Cloud_Native-231F20?style=flat-square&logo=cncf&logoColor=white)
 
-> 📖 **This repository accompanies a Korean book.** This English page explains *what* the project is and *why* it is built this way. The full hands-on guide — the guardrails, decision guides, and verification templates — is written in Korean, because the AI reads them in Korean exactly as the book presents them.
+> 📖 **This repository accompanies a Korean book.** This English page explains *what* the project is and *why* it is built this way. The full hands-on guide (the guardrails, decision guides, and verification templates) is written in Korean, because the AI reads them in Korean exactly as the book presents them.
 
-This is the companion repository for the book *"Infrastructure Provisioning & Deployment for the AI Era — with Claude Code."* Working alongside Claude Code, you build a deployment pipeline on GKE that grows from SMB to Enterprise scale, and along the way you naturally produce a **living operational standard** the book calls **GitAIOps**.
+This is the companion repository for the book *"AI Agent-Driven Infrastructure: Build, Deploy, and Operate with Claude Code."* Working alongside Claude Code, you build a deployment pipeline on GKE that grows from SMB to Enterprise scale, and along the way you naturally produce a **living operational standard** the book calls **GitAIOps**.
 
 ---
 
@@ -25,7 +25,7 @@ This is the companion repository for the book *"Infrastructure Provisioning & De
 GitAIOps is the idea that emerges when you let an AI agent operate infrastructure under version control:
 
 - **Git** is the single source of truth for your infrastructure.
-- **AI** is a living author of the operational standard — not a one-off code generator, but a collaborator that reads the project's accumulated context and keeps the standard current.
+- **AI** is a living author of the operational standard, not a one-off code generator but a collaborator that reads the project's accumulated context and keeps the standard current.
 - **Ops** decisions are captured as they happen (in `CLAUDE.md`, architecture snapshots, and ADRs) so that both humans and AI can review and build on them.
 
 Instead of asking the AI to "write a script," you give it durable **guardrails** and let it carry out real operational work safely.
@@ -36,9 +36,9 @@ Instead of asking the AI to "write a script," you give it durable **guardrails**
 
 When you clone this repository and run Claude Code inside it, `CLAUDE.md` is loaded automatically. From then on, plain-language requests flow through three stages:
 
-1. **Explore** — *"What should I use?"* → Claude consults `decision-guides/` and recommends a tool with reasoning.
-2. **Compare** — *"How does it compare to the alternatives?"* → Claude reads the comparison section of `decision-guides/`.
-3. **Execute** — *"Set it up."* → Claude follows the steps in `prompt-guardrails/`, then validates the result against `result-templates/`.
+1. **Explore**: *"What should I use?"* → Claude consults `decision-guides/` and recommends a tool with reasoning.
+2. **Compare**: *"How does it compare to the alternatives?"* → Claude reads the comparison section of `decision-guides/`.
+3. **Execute**: *"Set it up."* → Claude follows the steps in `prompt-guardrails/`, then validates the result against `result-templates/`.
 
 This separation is what keeps an autonomous agent on the rails: it knows *which tool*, *why*, *how to install it*, and *how to confirm it actually worked*.
 
@@ -49,9 +49,9 @@ This separation is what keeps an autonomous agent on the rails: it knows *which 
 ```
 ├── ch1~ch9/            # Per-chapter summaries (README.md)
 ├── apx/                # Appendices (A: onboarding guide, B: large-scale projects)
-├── decision-guides/    # Tool-selection guides — used for "what should I use?" / "compare them"
-├── prompt-guardrails/  # Execution guardrails — used for "set it up" / "go ahead"
-├── result-templates/   # Verification checklists — used to confirm results
+├── decision-guides/    # Tool-selection guides (for "what should I use?" / "compare them")
+├── prompt-guardrails/  # Execution guardrails (for "set it up" / "go ahead")
+├── result-templates/   # Verification checklists (to confirm results)
 ├── CLAUDE.md           # Operating rules for Claude Code (auto-loaded after clone)
 └── README.md
 ```
@@ -78,7 +78,7 @@ This separation is what keeps an autonomous agent on the rails: it knows *which 
 
 ## The reader's practice repository
 
-This is the **guide** repository. As you follow the book, you create your own practice repository named `notiflex-platform`. The finished platform — its structure, manifests, and the architecture decisions the AI agents recorded — is published here:
+This is the **guide** repository. As you follow the book, you create your own practice repository named `notiflex-platform`. The finished platform (its structure, manifests, and the architecture decisions the AI agents recorded) is published here:
 
 - **Finished platform:** https://github.com/sysnet4admin/notiflex-platform
 
