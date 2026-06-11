@@ -2,8 +2,8 @@
 
 **한국어** | [English](README.en.md)
 
-<a href="">
-<img src="" width="400">
+<a href="https://product.kyobobook.co.kr/detail/S000220220936">
+<img src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791140719174.jpg" width="400">
 </a>
 </br>
 
