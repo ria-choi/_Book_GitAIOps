@@ -1,6 +1,12 @@
+<div align="center">
+
 # AI Agent-Driven Infrastructure: Build, Deploy, and Operate with Claude Code
 
 [한국어](README.md) | **English**
+
+<a href="https://gilbut.co/c/26066621Uj">
+<img src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791140719174.jpg" width="320">
+</a>
 
 ![Claude Code](https://img.shields.io/badge/Claude_Code-D97757?style=flat-square&logo=anthropic&logoColor=white)
 ![GitAIOps](https://img.shields.io/badge/GitAIOps-0F172A?style=flat-square&logo=git&logoColor=white)
@@ -13,6 +19,8 @@
 ![Observability](https://img.shields.io/badge/Observability-7B68EE?style=flat-square&logo=opentelemetry&logoColor=white)
 ![CI/CD](https://img.shields.io/badge/CI%2FCD-2088FF?style=flat-square&logo=githubactions&logoColor=white)
 ![Cloud Native](https://img.shields.io/badge/Cloud_Native-231F20?style=flat-square&logo=cncf&logoColor=white)
+
+</div>
 
 > 📖 **This repository accompanies a Korean book.** This English page explains *what* the project is and *why* it is built this way. The full hands-on guide (the guardrails, decision guides, and verification templates) is written in Korean, because the AI reads them in Korean exactly as the book presents them.
 
@@ -90,4 +98,4 @@ It is worth a look on its own: the same guardrails were run by three different A
 
 - [Hoon Jo (조 훈)](https://github.com/sysnet4admin)
 
-The book (in Korean) is available at [Kyobo](https://product.kyobobook.co.kr/detail/S000220220936), [Yes24](https://link.yes24.com/a/Ldoo2neRav), and [Aladin](https://www.aladin.co.kr/shop/wproduct.aspx?ISBN=9791140719174). Errata are published under [Releases](../../releases).
+The book (in Korean, ISBN 979-11-407-1917-4) is available at [Kyobo](https://gilbut.co/c/26066621Uj), [Yes24](https://gilbut.co/c/26061118Uj), and [Aladin](https://gilbut.co/c/26067638kx). Errata are published under [Releases](../../releases).
