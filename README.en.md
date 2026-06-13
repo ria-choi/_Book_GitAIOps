@@ -102,6 +102,9 @@ It is worth a look on its own: the same guardrails were run by three different A
 
 ## Author
 
-- [Hoon Jo (조 훈)](https://github.com/sysnet4admin) · [LinkedIn](https://linkedin.com/in/hoonjo) · [YouTube](https://youtube.com/@KubernetesLab) · [Tech Blog](https://kuberneteslab.dev/ko)
+[![GitHub](https://img.shields.io/badge/GitHub-sysnet4admin-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/sysnet4admin)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-hoonjo-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/hoonjo)
+[![YouTube](https://img.shields.io/badge/YouTube-KubernetesLab-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://youtube.com/@KubernetesLab)
+[![Tech Blog](https://img.shields.io/badge/Tech_Blog-kuberneteslab.dev-00B4AB?style=flat-square&logo=googlechrome&logoColor=white)](https://kuberneteslab.dev/ko)
 
 The book (in Korean, ISBN 979-11-407-1917-4) is available at [Kyobo](https://product.kyobobook.co.kr/detail/S000220220936), [Yes24](https://link.yes24.com/a/Ldoo2neRav), and [Aladin](https://www.aladin.co.kr/shop/wproduct.aspx?ISBN=9791140719174). Errata are published under [Releases](../../releases).
