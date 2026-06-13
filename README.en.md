@@ -65,6 +65,8 @@ This separation is what keeps an autonomous agent on the rails: it knows *which 
 ├── prompt-guardrails/  # Execution guardrails (for "set it up" / "go ahead")
 ├── result-templates/   # Verification checklists (to confirm results)
 ├── CLAUDE.md           # Operating rules for Claude Code (auto-loaded after clone)
+├── AGENTS.md           # Codex CLI adapter (differences from Claude Code)
+├── GEMINI.md           # Gemini CLI adapter (differences from Claude Code)
 └── README.md
 ```
 
