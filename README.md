@@ -104,7 +104,7 @@ Claude Code와 함께 GKE 위에서 SMB → Enterprise 수준의 배포 파이�
 
 ## 저자
 
-- ✔️ 조 훈 ([GitHub](https://github.com/sysnet4admin) · [LinkedIn](https://linkedin.com/in/hoonjo) · [YouTube](https://youtube.com/@KubernetesLab) · [Tech Blog](https://kuberneteslab.dev/ko))
+- ✔️ 조 훈 ( [GitHub](https://github.com/sysnet4admin) · [LinkedIn](https://linkedin.com/in/hoonjo) · [YouTube](https://youtube.com/@KubernetesLab) · [Tech Blog](https://kuberneteslab.dev/ko) )
 
 ## 도서 구입 안내
 
